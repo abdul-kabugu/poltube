@@ -13,7 +13,7 @@ import { useAuthenticate, useTruncateText } from '../Hooks'
 import {web3Accounts} from '@polkadot/extension-dapp'
 export default function TopNav() {
     const [searchTxt, setsearchTxt] = useState("")
-    const [isAuthenticated, setisAuthenticated] = useState(false)
+    const [isAuthenticated, setisAuthenticated] = useState(true)
     const {colorMode, toggleColorMode} = useColorMode()
     const { isOpen, onOpen, onClose } = useDisclosure()
         const {connectWallet, isNoExtension, userWallets} = useAuthenticate()
@@ -21,11 +21,19 @@ export default function TopNav() {
 
           const handleSaveLogins =(userDetails) => {
             localStorage.setItem('poltubeUserDetails', JSON.stringify(userDetails));
+             onClose()
             console.log("the current user details", userDetails)
           }
 
-          const items = JSON.parse(localStorage.getItem('poltubeUserDetails'));
-          console.log("the current user details from local storage", items)
+        
+
+           const handleLogOut = () => {
+            localStorage.removeItem('poltubeUserDetails');
+            setisAuthenticated(false)
+           }
+
+          const CONNECTED_USER_DETAILS = JSON.parse(localStorage.getItem('poltubeUserDetails'));
+          console.log("the current user details from local storage", CONNECTED_USER_DETAILS)
 
       const  handleConnectWallet = async () =>  {
             await connectWallet()
@@ -47,7 +55,7 @@ export default function TopNav() {
       </InputGroup>
       </Hide>
       {
-        isAuthenticated ? (
+        CONNECTED_USER_DETAILS ? (
           <HStack gap={3}>
             <Link to="/upload">
             <IconButton   icon={<BiVideoPlus size={30} />} aria-label='Upload video' />
@@ -78,7 +86,7 @@ export default function TopNav() {
     </HStack>
     </MenuItem>
     <MenuItem>
-    <HStack>
+    <HStack onClick={handleLogOut}>
      <AiOutlineLogout size={20} />
     <Text fontWeight="bold">Sign Out</Text>
     </HStack>
