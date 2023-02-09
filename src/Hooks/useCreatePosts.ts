@@ -13,7 +13,7 @@ const useCreatePost = () => {
   const [isPostCreated, setisPostCreated] = useState(false)
 const [isApiConnected, setisApiConnected] = useState(true)
 const CONNECTED_USER_DETAILS = JSON.parse(localStorage.getItem('poltubeUserDetails'));
-    const createPost = async (title, cover, video,  tags, body ) =>  {
+    const createPost = async (title, cover,  tags, video) =>  {
         if(!isReady){
             setisApiConnected(false)
         }
@@ -21,10 +21,9 @@ const CONNECTED_USER_DETAILS = JSON.parse(localStorage.getItem('poltubeUserDetai
             setisCreatingPost(true)
         const postCid = await api!.ipfs.saveContent({
             title: title,
-            cover: cover,
-             video : video,
+            image: cover,
             tags: [tags],
-            body: body
+             body: video
           })
 
           const substrateApi = await api!.blockchain.api

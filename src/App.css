@@ -1,4 +1,4 @@
-* {
+/* {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
@@ -187,4 +187,13 @@ a:focus {
   color: #435985;
   text-align: center;
   margin-top: 2rem;
+}*/
+
+.video-react .video-react-control-bar .video-react-time-tooltip {
+  background-color: red;
+}
+.control-bar {
+  background-color: brown;
+  color: #D53F8C;
+  width: 400px;
 }

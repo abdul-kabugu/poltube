@@ -59,7 +59,7 @@ export default function UploadPage() {
           alert("something went wrong :", error)
        }*/
          //CREATE_POSTS
-       await createPost(videoTitle, imgCID, videoCID, videoCategory, videoDescribtion)
+       await createPost(videoTitle, imgCID,  videoCategory, videoCID)
       }
 
        
@@ -91,12 +91,17 @@ export default function UploadPage() {
         } else {
           return(
             <Button bgGradient="linear(to-r, #7626D1, #BB2694 )" _hover={{bg : "#7626D1"}} color="white" fontWeight="semibold" px={6} disabled={!videoTitle || !videoThumbnail || !selectedVideoFile} onClick={handleCreatePost} >
-               Submit Videkoo
+               Submit Video
             </Button>
           )
         }
       }
          
+
+        const handleCancel = () =>  {
+          setselectedVideoFile("")
+          setVideoThumbnail("")
+        }
   return (
     <Box height="auto"  w="100%" >
       <Heading fontSize="3xl" mt={7}> Upload videos</Heading>
@@ -148,7 +153,7 @@ export default function UploadPage() {
                      <Hide below='lg'>
                     <HStack gap={4} mt={8}>
                      {getCurrentButton()}
-                       <Button border="1px solid" borderColor="#7626D1" onClick={() => setselectedVideoFile("")}>Cancel</Button>
+                       <Button border="1px solid" borderColor="#7626D1" onClick={handleCancel}>Cancel</Button>
                       
                     </HStack>
                     </Hide>
@@ -180,7 +185,7 @@ export default function UploadPage() {
                 <Show below="lg">
                     <HStack gap={4} mt={4} mb={70}>
                       {getCurrentButton()}
-                       <Button border="1px solid" borderColor="#7626D1" onClick={() => setselectedVideoFile("")} >Cancel</Button>
+                       <Button border="1px solid" borderColor="#7626D1" onClick={handleCancel} >Cancel</Button>
                   
                     </HStack>
                     </Show>

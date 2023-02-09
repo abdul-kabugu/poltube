@@ -13,22 +13,18 @@ export const logTransaction = (result: any) => {
   if (status.isFinalized) {
     const blockHash = status.isFinalized ? status.asFinalized : status.asInBlock
     console.log('Tx finalized. Block hash', blockHash.toString())
-    const currentState = "The tx is finalized"
-     return currentState
+    
     const newIds = getNewIdsFromEvent(result) // get first argument from array.
     if (newIds.length > 0) {
       console.log(`New Item Id: ${newIds[0]}`)
-      const currentState = "Created Post Id" + " " + newIds[0]
-     return currentState
+      
     }
   } else if (result.isError) {
     console.log(JSON.stringify(result))
-    const currentState = "Error:" + " " + JSON.stringify(result)
-     return currentState
+    
   } else {
     console.log('⏱ Current tx status:', status.type)
-    const currentState = '⏱ Current tx status:' + " " + status.type
-     return currentState
+    
   }
 }
 

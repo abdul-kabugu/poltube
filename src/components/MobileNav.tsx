@@ -5,8 +5,8 @@ import { mobileNavigations } from '../assets/constant'
 
 export default function MobileNav() {
   return (
-       <Box >
-        <Box pos='fixed' top="90vh" display="flex" justifyContent="space-between"  w="100%" paddingX={4}>
+       <Box  bg="red" >
+        <Box pos='fixed' top="90vh" display="flex" justifyContent="space-between"  w="100%" bg="white" px={4} zIndex={10} >
        {mobileNavigations.map((item, i) => {
 
         return(

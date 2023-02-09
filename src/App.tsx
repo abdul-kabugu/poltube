@@ -2,14 +2,14 @@ import { useContext, useEffect, useState } from 'react'
 import {Box, Hide, HStack, Show} from '@chakra-ui/react'
 import { TopNav, Sidebar, Discover, MobileNav } from './components'
 import {Route, Routes} from 'react-router-dom'
-import { UploadPage } from './pages'
-
+import { UploadPage, VideoDetails } from './pages'
+import "../src/App.css"
 // This is the start of the React app built using Subsocial Starter.
 export default function App() {
  
 
   return (
-    <Box >
+    <Box  >
        <TopNav />
        <HStack>
          <Hide below='md' >
@@ -20,7 +20,7 @@ export default function App() {
         <Routes>
           <Route   path='/' element={<Discover />}  />
           <Route    path='/upload' element={<UploadPage />}  />
-         
+           <Route   path='/:videoId' element ={ <VideoDetails />}      />
          </Routes>
          </HStack>
         <Show below='md'>

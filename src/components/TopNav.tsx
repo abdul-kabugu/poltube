@@ -41,7 +41,7 @@ export default function TopNav() {
       }
       console.log("the current  available wallets", userWallets)
   return (
-   <Box display="flex" justifyContent="space-between" maxW="1300px" mx="auto"  h={62} py={5} px={3} alignItems="center" pos="sticky" top={1}   >
+   <Box display="flex" justifyContent="space-between" maxW="1300px" mx="auto"  h={62} py={5} px={3} alignItems="center" pos="sticky" top={0} bg="white" zIndex={10} >
       <Box>
           <Heading as="h2">Poltube</Heading>
       </Box>
