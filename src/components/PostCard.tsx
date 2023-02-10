@@ -28,7 +28,7 @@ const duration = moment.duration(diffInHours, 'hours');
   return (
     
     <Box w={{base : "100vw", sm : "270px",  md : "270px",  lg: "220px", xl: "253px"}}  flexGrow={1} flexShrink={1}  maxW={{base: "450px", sm:"300px"}} cursor="pointer"   rounded="md"  onMouseEnter={toggleIsDisplayDots} onMouseLeave={toggleIsDisplayDots} >
-         <Link to={`/${video?.video?.id}`}>
+         <Link to={`/watch/${video?.video?.id}`}>
        <Box bg="black"  rounded="md">
         <Img  src={`${IPFS_GATEWAY}${video?.video?.image}`} 
           w="100%" h={{base : 190, md : 170}} objectFit="cover" rounded="md" minW={{base : "100%"}}
@@ -36,10 +36,10 @@ const duration = moment.duration(diffInHours, 'hours');
         </Box>
         </Link>
        <Box mt={2} display="flex"  px={2} alignItems="center" gap={2}>
-         <Link to={`/channel/${video?.video?.createdByAccount?.id}`}>
+         <Link to={`/channels/${video?.video?.createdByAccount?.id}`}>
          <Avatar size="xs"   />
          </Link>
-         <Link to={`/${video?.video?.id}`}>
+         <Link to={`/watch/${video?.video?.id}`}>
          <Text fontSize="sm" fontWeight="semibold">{video?.video?.title}</Text>
          </Link>
          {isDisplayDots && <BiDotsVerticalRounded  size={25} style={{marginLeft : "auto"}} />}
@@ -48,7 +48,7 @@ const duration = moment.duration(diffInHours, 'hours');
        </Box>
         <HStack gap={3} px={6} ml={4} mt={2}>
          <Text fontSize="sm" color="gray.400">likes {video?.video?.upvotesCount}</Text>
-       <Text fontSize="sm" color="gray.400">{duration.humanize().replace("a", "")} ago</Text>
+       <Text fontSize="sm" color="gray.400">{duration.humanize().replace("a ", "")} ago</Text>
        </HStack>
        
     </Box>
