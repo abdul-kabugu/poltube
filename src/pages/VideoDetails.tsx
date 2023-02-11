@@ -48,7 +48,7 @@ export default function VideoDetails({}) {
                   </Box>
                   </HStack>
 
-                  <Button variant="unstyled" bg="black" color="white" px={4} fontWeight="semibold" disabled={isSubscriber || isSubscribing} onClick={() => subscribe(CREATOR_USER_ID)}>{isSubscriber ? "Sibscribed" : "Subscribe"}</Button>
+                  <Button variant="unstyled" bg="black" color="white" px={4} fontWeight="semibold" disabled={isSubscriber || isSubscribing} onClick={() => subscribe(videoId)}>{isSubscriber ? "Sibscribed" : "Subscribe"}</Button>
              </Box>
 
                <CardFooter video = {data} />

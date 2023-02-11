@@ -13,7 +13,7 @@ export const UseSubscribe = () => {
         const substrateApi = await api!.blockchain.api
         const tx = substrateApi.tx.accountFollows.followAccount(acountId)
         await polkadotjs.signAndSendTx(tx, CONNECTED_USER_DETAILS?.address)
-      console.log("the space tx", spaceTransaction)
+      console.log("the space tx", tx)
       setisSubscribing(false)
      }
 

@@ -74,10 +74,13 @@ export default function TopNav() {
      
     </MenuItem>
     <MenuItem>
+      <Link to="/channel/settings">
     <HStack>
+
      <AiOutlineSetting size={20} />
-    <Text fontWeight="bold">Your channel</Text>
+    <Text fontWeight="bold">Channel settings</Text>
     </HStack>
+    </Link>
     </MenuItem>
     <MenuItem>
     <HStack  onClick={toggleColorMode} >

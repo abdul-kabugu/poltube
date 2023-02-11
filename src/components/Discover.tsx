@@ -22,7 +22,7 @@ export default function Discover() {
 
           return(
             <>
-            <PostCard key={i} video = {item} />
+            <PostCard key={i} video = {item} isLoading = {isPostsLoading} />
             
             
             

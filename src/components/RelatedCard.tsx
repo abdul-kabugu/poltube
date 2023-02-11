@@ -15,7 +15,7 @@ export default function RelatedCard({post}) {
 const diffInHours = diffInMilliseconds / (60 * 60 * 1000);
 const duration = moment.duration(diffInHours, 'hours');
   return (
-     <Link to={`/${post?.id}`}>
+     <Link to={`/watch/${post?.id}`}>
    <Box mb={2} display="flex" alignItems="center" gap={3} cursor="pointer" >
      <Image src={`${IPFS_GATEWAY}${post?.image}`}   
        width="50%" maxH={100} objectFit="cover" rounded="md"

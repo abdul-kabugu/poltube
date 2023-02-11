@@ -1,10 +1,13 @@
 
 import { getNewIdsFromEvent } from '@subsocial/api'
-
+import {useState} from 'react'
 // logTransaction is a callback method when a transaction is sent to
 // the blockchain. It listens and logs the events like ready, broadcast, finalized, etc.
 // It also logs if a new id is generated during an event.
+
+  
 export const logTransaction = (result: any) => {
+  
   const { status } = result
 
   if (!result || !status) {
@@ -13,7 +16,7 @@ export const logTransaction = (result: any) => {
   if (status.isFinalized) {
     const blockHash = status.isFinalized ? status.asFinalized : status.asInBlock
     console.log('Tx finalized. Block hash', blockHash.toString())
-    
+   
     const newIds = getNewIdsFromEvent(result) // get first argument from array.
     if (newIds.length > 0) {
       console.log(`New Item Id: ${newIds[0]}`)
@@ -26,6 +29,8 @@ export const logTransaction = (result: any) => {
     console.log('⏱ Current tx status:', status.type)
     
   }
+
+  
 }
 
 // Sign and send transaction using polkadot.js web extension.

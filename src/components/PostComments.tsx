@@ -55,8 +55,8 @@ export default function PostComments({videoId}) {
          }
        </Box>
 
-       {!postComments?.posts  &&
-          <Box mt={6}>
+       {postComments?.posts?.length < 1  &&
+          <Box mt={4}>
           <Text>No comment  yet</Text>
        </Box>
        }

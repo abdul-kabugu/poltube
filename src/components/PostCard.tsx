@@ -7,7 +7,7 @@ import {IPFS_GATEWAY} from '../assets/constant'
 import {BiDotsVerticalRounded} from 'react-icons/bi'
 import moment from 'moment';
 import { Link } from 'react-router-dom'
-export default function PostCard(video) {
+export default function PostCard(video, isLoading) {
   const [isDisplayDots, setIsDisplayDots] = useState(false)
   const [currentTime, setCurrentTime] = useState(new Date());
   const currentDate = new Date();
@@ -24,7 +24,15 @@ const duration = moment.duration(diffInHours, 'hours');
   const toggleIsDisplayDots = () => {
     isDisplayDots ?  setIsDisplayDots(false) : setIsDisplayDots(true)
   }
-  console.log("the video ", video?.video)
+  console.log("the video ", video)
+
+    if(video.isLoading){
+      return(
+         <Box>
+          <Heading>The think is loading</Heading>
+         </Box>
+      )
+    }
   return (
     
     <Box w={{base : "100vw", sm : "270px",  md : "270px",  lg: "220px", xl: "253px"}}  flexGrow={1} flexShrink={1}  maxW={{base: "450px", sm:"300px"}} cursor="pointer"   rounded="md"  onMouseEnter={toggleIsDisplayDots} onMouseLeave={toggleIsDisplayDots} >

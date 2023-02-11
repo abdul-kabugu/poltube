@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from 'react'
 import {Box, Hide, HStack, Show} from '@chakra-ui/react'
 import { TopNav, Sidebar, Discover, MobileNav } from './components'
 import {Route, Routes} from 'react-router-dom'
-import { UploadPage, VideoDetails } from './pages'
+import { ChannelSettings, UploadPage, VideoDetails } from './pages'
 import "../src/App.css"
 import UserChannel from './pages/UserChannel'
 // This is the start of the React app built using Subsocial Starter.
@@ -23,6 +23,7 @@ export default function App() {
           <Route    path='/upload' element={<UploadPage />}  />
            <Route   path='/watch/:videoId' element ={ <VideoDetails />}      />
            <Route   path='/channels/:channelId'  element = {<UserChannel />}    />
+           <Route    path='/channel/settings' element={<ChannelSettings   />}     />
          </Routes>
          </HStack>
         <Show below='md'>

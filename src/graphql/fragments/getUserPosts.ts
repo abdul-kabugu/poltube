@@ -24,6 +24,16 @@ query AccountById($accountByIdId: String!) {
         image
         id
         isComment
+        parentPost {
+          body
+          title
+          id
+          createdAtTime
+          upvotesCount
+          image
+          downvotesCount
+          isComment
+        }
         upvotesCount
       downvotesCount
         __typename

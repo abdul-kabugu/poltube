@@ -10,8 +10,8 @@ import { Box, Button,
 } from '@chakra-ui/react'
 import {useState} from 'react'
 import {RiShareForwardLine} from 'react-icons/ri'
-import { AiOutlineDislike, AiOutlineDollar, AiOutlineLike } from 'react-icons/ai'
-import { useReactions, useTruncateText } from '../Hooks'
+import { AiOutlineDislike, AiOutlineDollar, AiOutlineLike, AiOutlineRetweet } from 'react-icons/ai'
+import { useAmplify, useReactions, useTruncateText } from '../Hooks'
 import SocialShareBtns from './SocialShareBtns'
 import TipUser from './TipUser'
 
@@ -19,6 +19,7 @@ export default function CardFooter({video}) {
   const [isShowShareModal, setisShowShareModal] = useState(false)
   const [isShowTipModal, setisShowTipModal] = useState(false)
   const {likePost, deslikePost, isDeslikeLoading, isLikeLoading} = useReactions()
+  const {amplifyPost, isAmplifying} = useAmplify()
   const {shortenTxt} = useTruncateText()
    const toggleIsShareModal = () =>  {
     isShowShareModal ?  setisShowShareModal(false) : setisShowShareModal(true)
@@ -47,7 +48,9 @@ export default function CardFooter({video}) {
       Dislike {video?.postById?.downvotesCount && video?.postById?.downvotesCount}
     </Button>
  
-
+   <Button leftIcon={<AiOutlineRetweet  />} onClick={() => amplifyPost(video?.postById?.id)}>
+   Amplify
+   </Button>
  
     <Button
     leftIcon={<AiOutlineDollar />} 
