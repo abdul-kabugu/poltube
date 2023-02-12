@@ -1,5 +1,5 @@
 // @ts-nocheck
-import { Avatar, Box, Button, Heading, HStack, Text } from '@chakra-ui/react'
+import { Avatar, Box, Button, Heading, HStack, Skeleton, SkeletonCircle, Text } from '@chakra-ui/react'
 import {useState, useContext, useEffect} from 'react'
 import { useParams } from 'react-router-dom'
 import { UserDataStats } from '../components'
@@ -8,6 +8,7 @@ import {SubsocialContext} from '../subsocial/provider'
 
 export default function UserChannel() {
   const [isSubscriber, setisSubscriber] = useState(false)
+  const [isShowIt, setisShowIt] = useState(true)
     const {channelId} =  useParams()
     const {shortenTxt} = useTruncateText()
     const {api, isReady} = useContext(SubsocialContext)
@@ -27,6 +28,56 @@ export default function UserChannel() {
       }, [api])
 
       console.log("is Subscriber", isSubscriber )
+
+         
+      if(isUserDataError) {
+        return(
+          <Box w="70vw" h="100vh" display="flex" flexDir="column" gap={3} alignSelf="start" alignItems="center" justifyContent="center">
+              <Heading fontSize="lg">Some Thing  Went  wrong</Heading>
+              <Heading fontSize="lg">Check your connection and Refresh the page </Heading>
+          </Box>
+        )
+      }
+
+       if(isUserDataLoading){
+        return(
+
+          <Box alignSelf="start" w={{base : "100vw", md : "70vw", lg : "75vw"}} >
+            <Box position="relative">
+             <Skeleton   w="100%" h={300} flexGrow={2} />
+                <Box display="flex" justifyContent="space-between" alignItems="center" pos="absolute" top="90%" width="100%">
+                  <HStack gap={4}>
+                    <SkeletonCircle   size={28}  />
+                     <Box display="flex" flexDir="column" gap={3}>
+                      <Skeleton    width={170} h={4} />
+                      <Skeleton    width={100} h={3} />
+                     </Box>
+                  </HStack>
+
+                   <Skeleton  w={100} h={10} rounded="lg" />
+                </Box>
+             </Box>
+
+               <Box mt={100}>
+                <HStack gap={4}>
+                   <Skeleton  width={90} h={5} />
+                   <Skeleton  width={90} h={5} />
+                   <Skeleton  width={90} h={5} />
+                </HStack>
+
+               </Box>
+
+                <Box mt={4}>
+                  <HStack>
+                    <Skeleton   w={400} h={170} rounded="md" />
+                    <Skeleton   w={400} h={170} rounded="md" />
+                    <Skeleton   w={400} h={170} rounded="md" />
+                    <Skeleton   w={400} h={170} rounded="md" />
+                  </HStack>
+                </Box>
+          </Box>
+        )
+       }
   return (
    <Box alignSelf="flex-start" width="100%" px={{base : 0 , md : 2}}>
     <Box w="100%" h={{base : 200 , lg : 280}}

@@ -1,5 +1,5 @@
 // @ts-nocheck
-import { Avatar, Box, Heading, HStack, Img, Text } from '@chakra-ui/react'
+import { Avatar, Box, Heading, HStack, Img, Skeleton, Text } from '@chakra-ui/react'
 import {useState, useEffect} from 'react'
 import {FormattedRelativeTime} from 'react-intl'
 import { isTemplateExpression } from 'typescript'
@@ -26,15 +26,9 @@ const duration = moment.duration(diffInHours, 'hours');
   }
   console.log("the video ", video)
 
-    if(video.isLoading){
-      return(
-         <Box>
-          <Heading>The think is loading</Heading>
-         </Box>
-      )
-    }
-  return (
     
+  return (
+       
     <Box w={{base : "100vw", sm : "270px",  md : "270px",  lg: "220px", xl: "253px"}}  flexGrow={1} flexShrink={1}  maxW={{base: "450px", sm:"300px"}} cursor="pointer"   rounded="md"  onMouseEnter={toggleIsDisplayDots} onMouseLeave={toggleIsDisplayDots} >
          <Link to={`/watch/${video?.video?.id}`}>
        <Box bg="black"  rounded="md">
@@ -60,5 +54,6 @@ const duration = moment.duration(diffInHours, 'hours');
        </HStack>
        
     </Box>
+    
   )
 }

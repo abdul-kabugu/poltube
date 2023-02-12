@@ -136,3 +136,6 @@ export const videoCategories = [
 
 export const IPFS_GATEWAY = "https://ipfs.subsocial.network/ipfs/"
 export const SPACE_ID = 1080
+
+ export const  fakeArray = [1, 2, 3, 4, 5, 6, 7,8,9,10,11,12]
+ export const  fakeArrayTwo = [1, 2, 3, 4, 5, 6]

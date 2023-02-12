@@ -4,8 +4,8 @@ import React from 'react'
 import { useDiscoverVideos } from '../Hooks'
 import RelatedCard from './RelatedCard'
 
-export default function RelatedVideos() {
-  const {posts, isPostsLoading, isPostsError} = useDiscoverVideos()
+export default function RelatedVideos({posts}) {
+  //const {posts, isPostsLoading, isPostsError} = useDiscoverVideos()
   console.log("the thing", posts)
   const filteredPosts = posts?.posts?.filter(post => post.hasOwnProperty("image") && post.image !== null)
   return (
