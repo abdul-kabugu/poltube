@@ -19,7 +19,7 @@ export default function UploadVideo({ selectedVideoFile, setSelectedVideoFile}) 
             <Text mb={4}>Your video will be private until you publish them.</Text>
             <input ref={videoRef} type="file" name="img" accept="video/*" onChange={e => setSelectedVideoFile(e.target.files[0])} hidden/>
              <Button bgGradient="linear(to-r, #7626D1, #BB2694 )" _hover={{bg : "#7626D1"}} color="white" fontWeight="semibold" py={3} px={6} mb={6} onClick={handleSelectFile}>Select File</Button>
-              <Text fontSize="sm">Max. File Size Supports 1 GB</Text>
+              <Text fontSize="sm">Max. File Size Supports 15 MB</Text>
         </Box>
     </Box>
   )

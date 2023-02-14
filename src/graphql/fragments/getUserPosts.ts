@@ -19,7 +19,7 @@ query AccountById($accountByIdId: String!) {
       posts {
         body
         title
-        appId
+        
         createdAtTime
         image
         id

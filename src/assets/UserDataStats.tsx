@@ -1,7 +1,8 @@
 // @ts-nocheck
-import { Box, Tabs, TabList, TabPanels, Tab, TabPanel, Text  } from '@chakra-ui/react'
+import { Box, Tabs, TabList, TabPanels, Tab, TabPanel, Text, Heading  } from '@chakra-ui/react'
 import React from 'react'
 import { UserVideosTab } from '../components'
+import UserSharedPostsTab from '../components/UserSharedPostsTab'
 
 export default function UserDataStats({userDetails}) {
   return (
@@ -19,10 +20,10 @@ export default function UserDataStats({userDetails}) {
               <UserVideosTab videos={userDetails?.accountById?.posts}  />
             </TabPanel>
              <TabPanel>
-                <Text>I'm shared posts</Text>
+              <UserSharedPostsTab  />
              </TabPanel>
              <TabPanel>
-             <Text>I'm user Abouts</Text>
+             <UserSharedPostsTab  />
              </TabPanel>
           </TabPanels>
         </Tabs>

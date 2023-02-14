@@ -9,7 +9,7 @@ export interface CustomNetwork {
 // Check here: https://docs.subsocial.network/docs/develop/getting-started/testnet
 export const Testnet: CustomNetwork = {
   substrateNodeUrl: 'wss://rco-para.subsocial.network',
-  ipfsNodeUrl: 'https://gw.crustfiles.app',
+  ipfsNodeUrl:   "https://gw.crustfiles.net"       //'https://gw.crustfiles.app',
 }
 
 // Mainnet configuration for the playground.
