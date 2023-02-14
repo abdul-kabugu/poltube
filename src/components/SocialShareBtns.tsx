@@ -5,7 +5,7 @@ import { AiFillInstagram } from 'react-icons/ai'
 import { FacebookIcon, FacebookShareButton, InstapaperShareButton, LinkedinIcon, LinkedinShareButton, PinterestIcon, PinterestShareButton, RedditIcon, RedditShareButton, TelegramIcon, TelegramShareButton, TwitterIcon, TwitterShareButton, WhatsappIcon, WhatsappShareButton } from 'react-share'
 
 export default function SocialShareBtns({postId}) {
-     const url = `poltube.xyz/watch/${postId}`
+     const url = `https://poltube.vercel.app/watch/${postId}`
      const { onCopy, value, setValue, hasCopied } = useClipboard(url);
   return (
     <Box>
