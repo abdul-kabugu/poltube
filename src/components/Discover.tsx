@@ -11,6 +11,8 @@ export default function Discover() {
   const {posts, isPostsLoading, isPostsError} = useDiscoverVideos()
 const [isShowIt, setisShowIt] = useState(true)
    console.log("the posts from  hooks", posts)
+   const userLibrary  =  JSON.parse(localStorage.getItem('poltubeUserHistory_v2')) || [];
+    console.log("the user library  is  here", userLibrary)
   //FILTER  POSTS  
       const filteredPosts = posts?.posts?.filter(post => post.hasOwnProperty("image") && post.image !== null)
       
@@ -56,7 +58,7 @@ const [isShowIt, setisShowIt] = useState(true)
 
           return(
             <>
-            <PostCard key={i} video = {item} isLoading = {isPostsLoading} />
+            <PostCard key={i} video = {item}  />
             
             
             

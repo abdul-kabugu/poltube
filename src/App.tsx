@@ -5,6 +5,7 @@ import {Route, Routes} from 'react-router-dom'
 import { ChannelSettings, UploadPage, VideoDetails } from './pages'
 import "../src/App.css"
 import UserChannel from './pages/UserChannel'
+import UserLibrary from './pages/UserLibrary'
 // This is the start of the React app built using Subsocial Starter.
 export default function App() {
  
@@ -24,6 +25,8 @@ export default function App() {
            <Route   path='/watch/:videoId' element ={ <VideoDetails />}      />
            <Route   path='/channels/:channelId'  element = {<UserChannel />}    />
            <Route    path='/channel/settings' element={<ChannelSettings   />}     />
+           <Route    path='/library' element={<UserLibrary  />}  />
+            <Route   path='/history'  element={<UserLibrary  />}   />
          </Routes>
          </HStack>
         <Show below='md'>

@@ -84,7 +84,7 @@ export default function CardFooter({video}) {
       {/* END OF SHARE MODAL */}
 
           {/*TIP USER MODAL*/}
-          <Modal isOpen={isShowTipModal} onClose={toggleIsTipModal} isCentered>
+          <Modal isOpen={isShowTipModal} onClose={toggleIsTipModal} isCentered >
         <ModalOverlay />
         <ModalContent>
           <ModalHeader>Tip {video?.postById?.createdByAccount && shortenTxt(video?.postById?.createdByAccount?.id, 10)}</ModalHeader>

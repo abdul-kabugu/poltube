@@ -5,6 +5,7 @@ import useCreatePost from "./useCreatePosts";
 import { useCreateProfile } from "./useCreateProfile";
 import useCreateSpace from "./useCreateSpace";
 import useDiscoverVideos from "./useDiscoverVideos";
+import { useDonate } from "./useDonate";
 import useGetPostComments from "./useGetPostComments";
 import { useGetUserData } from "./useGetUserData";
 import { useGetVideoById } from "./useGetVideoById";
@@ -15,5 +16,5 @@ import useTruncateText from "./useTruncateText";
 export {
     useAuthenticate, useTruncateText, useCreateSpace, useCreatePost, useDiscoverVideos,
     useGetVideoById, useGetPostComments, useCreateComment, useReactions, UseSubscribe,
-    useGetUserData, useAmplify, useCreateProfile
+    useGetUserData, useAmplify, useCreateProfile, useDonate
 }
