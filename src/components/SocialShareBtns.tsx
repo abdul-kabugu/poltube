@@ -3,10 +3,12 @@ import { Box, Button, HStack, Text, useClipboard } from '@chakra-ui/react'
 import React from 'react'
 import { AiFillInstagram } from 'react-icons/ai'
 import { FacebookIcon, FacebookShareButton, InstapaperShareButton, LinkedinIcon, LinkedinShareButton, PinterestIcon, PinterestShareButton, RedditIcon, RedditShareButton, TelegramIcon, TelegramShareButton, TwitterIcon, TwitterShareButton, WhatsappIcon, WhatsappShareButton } from 'react-share'
+import { useTruncateText } from '../Hooks'
 
 export default function SocialShareBtns({postId}) {
      const url = `https://poltube.vercel.app/watch/${postId}`
      const { onCopy, value, setValue, hasCopied } = useClipboard(url);
+     const {shortenTxt} = useTruncateText()
   return (
     <Box>
        <HStack gap={2}>
@@ -36,7 +38,7 @@ export default function SocialShareBtns({postId}) {
        </HStack>
 
          <Box w="100%" h={14} border="1px solid" borderColor="gray.400" rounded="lg" mt={6} display="flex" alignItems="center" mb={3} px={3} justifyContent="space-between">
-           <Text fontSize="xl" fontWeight="semibold" color="gray.800">{url}</Text>
+           <Text fontSize="xl" fontWeight="semibold" color="gray.800">{shortenTxt(url, 30)}</Text>
              <Button bgGradient="linear(to-r, #7626D1, #BB2694 )" _hover={{bg : "#7626D1"}} color="white" fontWeight="semibold" px={4} rounded="xl" onClick={onCopy}>{hasCopied ? "Copied" : "Copy"}</Button>
          </Box>
     </Box>
