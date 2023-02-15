@@ -99,7 +99,7 @@ export default function UserChannel() {
     </Box>
 
    <Box w="100%" h="100vh" mt={{base : 24, lg : 28}}>
-     <UserDataStats userDetails = {userData} />
+     <UserDataStats userDetails = {userData} channelId = {channelId} />
    </Box>
     
    </Box>

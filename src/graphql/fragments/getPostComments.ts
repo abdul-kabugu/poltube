@@ -16,6 +16,12 @@ query GET_COMMENTS($where: PostWhereInput) {
     createdByAccount {
       followersCount
       id
+      profileSpace {
+        about
+        name
+        image
+
+      }
     }
     }
   }

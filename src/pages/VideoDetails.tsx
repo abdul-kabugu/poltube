@@ -31,7 +31,7 @@ export default function VideoDetails({}) {
         }
       useEffect(() => {
         checkIsFollower()
-      }, [api])
+      }, [isReady])
 
       console.log("is Subscriber", isSubscriber )
 
@@ -110,9 +110,9 @@ export default function VideoDetails({}) {
             <Box mt={3} display="flex" justifyContent="space-between" w="100%" flexWrap="wrap">
              <Box display="flex" w="100%" gap={6} alignItems="center" justifyContent="space-between" >
                <HStack gap={4}>
-                <Avatar size="md"   />
+                <Avatar size="md" src={`${IPFS_GATEWAY}${data?.postById?.createdByAccount.profileSpace?.image}`}  />
                   <Box>
-                   <Link to={`/channels/${data?.postById?.createdByAccount?.id}`}> <Text fontSize="lg" fontWeight="semibold">{data?.postById?.createdByAccount && shortenTxt(data?.postById?.createdByAccount?.id, 10)}</Text> </Link>
+                   <Link to={`/channels/${data?.postById?.createdByAccount?.id}`}> <Text fontSize="lg" fontWeight="semibold">{ data?.postById?.createdByAccount.profileSpace?.name ||  data?.postById?.createdByAccount && shortenTxt(data?.postById?.createdByAccount?.id, 10)}</Text> </Link>
                      <Text>{data?.postById?.createdByAccount?.followersCount} Subscribers</Text>
                   </Box>
                   </HStack>

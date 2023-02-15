@@ -13,6 +13,12 @@ query GetPostBySpace($where: PostWhereInput) {
         updatedAtTime
        createdByAccount {
          id
+         profileSpace {
+          about
+          name
+          image
+
+        }
           
        }
       space {

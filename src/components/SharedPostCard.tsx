@@ -9,7 +9,7 @@ import moment from 'moment';
 import { Link } from 'react-router-dom'
 import { saveToLibrary } from '../utils'
 
-export default function PostCard(video, isLoading) {
+export default function SharedPostCard(video) {
   const [isDisplayDots, setIsDisplayDots] = useState(false)
   const [currentTime, setCurrentTime] = useState(new Date());
   const currentDate = new Date();
@@ -25,8 +25,8 @@ const duration = moment.duration(diffInHours, 'hours');
   const toggleIsDisplayDots = () => {
     isDisplayDots ?  setIsDisplayDots(false) : setIsDisplayDots(true)
   }
-  console.log("the video ", video?.video)
-  const avatarUrl = video?.video?.createdByAccount?.profileSpace?.image
+  console.log("the shared video ", video?.video)
+  const avatarUrl = video?.video?.sharedPost?.createdByAccount?.profileSpace?.image
     
   return (
        
@@ -35,7 +35,7 @@ const duration = moment.duration(diffInHours, 'hours');
     >
          <Link to={`/watch/${video?.video?.id}`}>
        <Box bg="black"  rounded="md" onClick={() => saveToLibrary(video)}>
-        <Img  src={`${IPFS_GATEWAY}${video?.video?.image}`} 
+        <Img  src={`${IPFS_GATEWAY}${video.video.sharedPost?.image}`} 
           w="100%" h={{base : 190, md : 170}} objectFit="cover" rounded="md" minW={{base : "100%"}}
         />
         </Box>
@@ -44,15 +44,15 @@ const duration = moment.duration(diffInHours, 'hours');
          <Link to={`/channels/${video?.video?.createdByAccount?.id}`}>
          <Avatar size="xs" src={`${IPFS_GATEWAY}${avatarUrl}`} />
          </Link>
-         <Link to={`/watch/${video?.video?.id}`}>
-         <Text fontSize="sm" fontWeight="semibold">{video?.video?.title}</Text>
+         <Link to={`/watch/${video?.video?.sharedPost.id}`}>
+         <Text fontSize="sm" fontWeight="semibold">{video?.video?.sharedPost.title}</Text>
          </Link>
          {isDisplayDots && <BiDotsVerticalRounded  size={25} style={{marginLeft : "auto"}} />}
           
           
        </Box>
         <HStack gap={3} px={6} ml={4} mt={2}>
-         <Text fontSize="sm" color="gray.400">likes {video?.video?.upvotesCount}</Text>
+         <Text fontSize="sm" color="gray.400">likes {video?.video?.sharedPost?.upvotesCount}</Text>
        <Text fontSize="sm" color="gray.400">{duration.humanize().replace("a ", "")} ago</Text>
        </HStack>
        

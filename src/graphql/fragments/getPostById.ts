@@ -13,6 +13,12 @@ query PostById($postByIdId: String!) {
         followersCount
         followingAccountsCount
         followingSpacesCount
+        profileSpace {
+          about
+          name
+          image
+  
+        }
         
       }
       createdOnDay

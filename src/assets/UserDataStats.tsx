@@ -2,9 +2,10 @@
 import { Box, Tabs, TabList, TabPanels, Tab, TabPanel, Text, Heading  } from '@chakra-ui/react'
 import React from 'react'
 import { UserVideosTab } from '../components'
+import AboutUser from '../components/AboutUser'
 import UserSharedPostsTab from '../components/UserSharedPostsTab'
 
-export default function UserDataStats({userDetails}) {
+export default function UserDataStats({userDetails, channelId}) {
   return (
     <Box>
         <Tabs colorScheme="purple">
@@ -20,10 +21,10 @@ export default function UserDataStats({userDetails}) {
               <UserVideosTab videos={userDetails?.accountById?.posts}  />
             </TabPanel>
              <TabPanel>
-              <UserSharedPostsTab  />
+              <UserSharedPostsTab channelId = {channelId}  />
              </TabPanel>
              <TabPanel>
-             <UserSharedPostsTab  />
+             <AboutUser  />
              </TabPanel>
           </TabPanels>
         </Tabs>

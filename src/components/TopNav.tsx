@@ -17,6 +17,7 @@ export default function TopNav() {
     const {colorMode, toggleColorMode} = useColorMode()
     const { isOpen, onOpen, onClose } = useDisclosure()
         const {connectWallet, isNoExtension, userWallets} = useAuthenticate()
+        const CONNECTED_USER_DETAILS = JSON.parse(localStorage.getItem('poltubeUserDetails'));
         const {shortenTxt} = useTruncateText()
 
           const handleSaveLogins =(userDetails) => {
@@ -32,8 +33,7 @@ export default function TopNav() {
             setisAuthenticated(false)
            }
 
-          const CONNECTED_USER_DETAILS = JSON.parse(localStorage.getItem('poltubeUserDetails'));
-          console.log("the current user details from local storage", CONNECTED_USER_DETAILS)
+
 
       const  handleConnectWallet = async () =>  {
             await connectWallet()
@@ -67,11 +67,12 @@ export default function TopNav() {
 
               <MenuList>
     <MenuItem>
+    <Link to={`/channels/${CONNECTED_USER_DETAILS?.address}`}>
     <HStack>
     <AiOutlineUser size={20}  />
     <Text fontWeight="bold">Your channel</Text>
     </HStack>
-     
+    </Link> 
     </MenuItem>
     <MenuItem>
       <Link to="/channel/settings">

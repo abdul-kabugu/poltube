@@ -39,6 +39,12 @@ query AccountById($accountByIdId: String!) {
         __typename
         createdByAccount {
           id
+          profileSpace {
+            about
+            name
+            image
+  
+          }
         }
       }
       followers {
