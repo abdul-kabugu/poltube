@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from 'react'
 import {Box, Hide, HStack, Show} from '@chakra-ui/react'
 import { TopNav, Sidebar, Discover, MobileNav } from './components'
 import {Route, Routes} from 'react-router-dom'
-import { ChannelSettings, UploadPage, VideoDetails } from './pages'
+import { AboutUs, ChannelSettings, Privacy, UploadPage, VideoDetails } from './pages'
 import "../src/App.css"
 import UserChannel from './pages/UserChannel'
 import UserLibrary from './pages/UserLibrary'
@@ -27,6 +27,8 @@ export default function App() {
            <Route    path='/channel/settings' element={<ChannelSettings   />}     />
            <Route    path='/library' element={<UserLibrary  />}  />
             <Route   path='/history'  element={<UserLibrary  />}   />
+             <Route  path='/privacy'   element = {<Privacy  />}       />
+             <Route   path='/about'   element = {<AboutUs  />} />
          </Routes>
          </HStack>
         <Show below='md'>

@@ -9,11 +9,11 @@ export const navigations = [
       icon : AiOutlineHome
     },
     
-    {
+   /* {
         title : "Subscribtions",
         to : "/subscribtions",
         icon : BsCollection
-      },
+      },*/
 
       {
         title : "Library",
@@ -58,7 +58,7 @@ export const socialIcons = [
 
     {
         title : "About",
-        to : "twitter",
+        to : "about",
         icon : FcAbout,
 
 

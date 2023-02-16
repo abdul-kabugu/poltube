@@ -24,6 +24,7 @@ export default function TopNav() {
             localStorage.setItem('poltubeUserDetails', JSON.stringify(userDetails));
              onClose()
             console.log("the current user details", userDetails)
+            setisAuthenticated(true)
           }
 
         
@@ -33,7 +34,7 @@ export default function TopNav() {
             setisAuthenticated(false)
            }
 
-
+   console.log("the current  connected  wallet  address", CONNECTED_USER_DETAILS?.address)
 
       const  handleConnectWallet = async () =>  {
             await connectWallet()
@@ -83,12 +84,16 @@ export default function TopNav() {
     </HStack>
     </Link>
     </MenuItem>
+    {
+      // SWITCH  COLORE  MODE  
+      /*
     <MenuItem>
     <HStack  onClick={toggleColorMode} >
      {colorMode === "light" ? <MdOutlineDarkMode  cursor="pointer" size={20} />  : <MdLightMode cursor="pointer" size={20} />  }
     <Text fontWeight="bold">{colorMode === "light" ? "Switch to Dark " : "Switch to Light"}</Text>
     </HStack>
     </MenuItem>
+    */}
     <MenuItem>
     <HStack onClick={handleLogOut}>
      <AiOutlineLogout size={20} />
@@ -102,10 +107,13 @@ export default function TopNav() {
              
           </HStack>
         ) : (
+          
+           
           <HStack>
-          {colorMode === "light" ? <MdOutlineDarkMode onClick={toggleColorMode} cursor="pointer" size={30} />  : <MdLightMode onClick={toggleColorMode} cursor="pointer" size={30} /> }
-           <Button bgGradient="linear(to-r, #7626D1, #BB2694 )" _hover={{bg : "#7626D1"}} color="white" fontWeight="semibold" px={6} onClick={handleConnectWallet}>Connect  Wallet</Button>
-        </HStack>
+          {/*colorMode === "light" ? <MdOutlineDarkMode onClick={toggleColorMode} cursor="pointer" size={30} />  : <MdLightMode onClick={toggleColorMode} cursor="pointer" size={30} /> */}
+           <Button bgGradient="linear(to-r, #7626D1, #BB2694 )" _hover={{bg : "#7626D1"}} color="white" fontWeight="semibold" px={6} onClick={handleConnectWallet}>Connect Wallet</Button>
+        </HStack> 
+         
         )
       }
       <Modal isOpen={isOpen} onClose={onClose} isCentered>
