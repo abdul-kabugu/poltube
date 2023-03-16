@@ -44,7 +44,7 @@ export default function TopNav() {
   return (
    <Box display="flex" justifyContent="space-between" maxW="1300px" mx="auto"  h={62} py={5} px={3} alignItems="center" pos="sticky" top={0} bg="white" zIndex={10} >
       <Box>
-          <Heading as="h2">Poltube</Heading>
+          <Heading as="h2" fontWeight="semibold">FrenTube</Heading>
       </Box>
       <Hide below='md'>
       <InputGroup w={{md : "40%", lg: "60%"}} >
